@@ -16,3 +16,11 @@
 /TicketingSolution.Persistence/obj
 /TicketingSolution.Persistence.Tests/bin/Debug/net6.0
 /TicketingSolution.Persistence.Tests/obj
+/TicketingSolution.API/bin/Release/net6.0
+/TicketingSolution.API.Test/bin/Release/net6.0
+/TicketingSolution.Core/bin/Release/net6.0
+/TicketingSolution.Core.Test/bin/Release/net6.0
+/TicketingSolution.Domain/bin/Release/net6.0
+/TicketingSolution.Persistence/bin/Release/net6.0
+/TicketingSolution.Persistence.Tests/bin/Release/net6.0
+/.vs/TicketingSolution/FileContentIndex

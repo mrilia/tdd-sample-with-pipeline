@@ -1,1 +1,46 @@
+name: My sample ticket project pipeline
 
+on: 
+  push: 
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: setup .net
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    
+    - name: restore packages
+      run: dotnet restore
+
+    - name: build solution
+      run: dotnet build --no-restore
+
+    - name: run tests
+      run: dotnet test --no-build --verbosity normal
+
+    - name: publish api
+      run: dotnet publish ./TicketingSolution.API -c Release --output ./release
+
+    # - name: api setting variables
+    #   uses: microsoft/variable-substitution@v1
+    #   with:
+    #     files: './release/appsettings.json'
+    #   env:
+    #     ConnectionStrings.DefaultDbContext: ${{secrets.CONNECTION_STRING}}
+
+    # - name: ftp deploy
+    #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+    #   with:
+    #     server: ${{secrets.FTP_SERVER_ADDRESS}}
+    #     username: ${{secrets.FTP_USERNAME}}
+    #     password: ${{secrets.FTP_PASSWORD}}
+    #     local-dir: ./release/
