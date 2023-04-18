@@ -1,7 +1,9 @@
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using TicketingSolution.Core;
+using TicketingSolution.Core.DataServices;
 using TicketingSolution.Persistence;
+using TicketingSolution.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,13 +11,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-var connString = "DataSource=:memory:";
+IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("appsettings.json")
+                            .Build();
+
+var connString = configuration["ConnectionStrings:DefaultDbContext"];
 var conn = new SqliteConnection(connString);
 conn.Open();
 
 builder.Services.AddDbContext<TicketingSolutionDbContext>(opt => opt.UseSqlite(conn));
 
 builder.Services.AddScoped<ITicketBookingRequestHandler, TicketBookingRequestHandler>();
+builder.Services.AddScoped<ITicketBookingService, TicketBookingService>();
 
 var app = builder.Build();
 

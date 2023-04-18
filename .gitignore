@@ -24,3 +24,4 @@
 /TicketingSolution.Persistence/bin/Release/net6.0
 /TicketingSolution.Persistence.Tests/bin/Release/net6.0
 /.vs/TicketingSolution/FileContentIndex
+TicketingSolution.API/appsettings.json
