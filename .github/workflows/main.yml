@@ -30,12 +30,12 @@ jobs:
     - name: publish api
       run: dotnet publish ./TicketingSolution.API -c Release --output ./release
 
-    # - name: api setting variables
-    #   uses: microsoft/variable-substitution@v1
-    #   with:
-    #     files: './release/appsettings.json'
-    #   env:
-    #     ConnectionStrings.DefaultDbContext: ${{secrets.CONNECTION_STRING}}
+    - name: api setting variables
+      uses: microsoft/variable-substitution@v1
+      with:
+        files: './release/appsettings.json'
+      env:
+        ConnectionStrings.DefaultDbContext: ${{secrets.CONNECTION_STRING}}
 
     # - name: ftp deploy
     #   uses: SamKirkland/FTP-Deploy-Action@v4.3.4
