@@ -24,7 +24,7 @@ namespace TicketingSolution.API.Controllers
                     return Ok(result);
                 }
 
-                ModelState.AddModelError(nameof(TicketBookingRequest.Date), "No Ticket Available For Given Date");
+                ModelState.AddModelError(nameof(TicketBookingRequest.Date), "No ticket available for given date");
             }
 
             return BadRequest(ModelState);
