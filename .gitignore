@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TicketingSolution.API/obj
+/TicketingSolution.API/bin/Debug/net6.0
+/TicketingSolution.API.Test/bin/Debug/net6.0
+/TicketingSolution.API.Test/obj
+/TicketingSolution.Core/bin/Debug/net6.0
+/TicketingSolution.Core/obj
+/TicketingSolution.Core.Test/bin/Debug/net6.0
+/TicketingSolution.Core.Test/obj
+/TicketingSolution.Domain/bin/Debug/net6.0
+/TicketingSolution.Domain/obj
+/TicketingSolution.Persistence/bin/Debug/net6.0
+/TicketingSolution.Persistence/obj
+/TicketingSolution.Persistence.Tests/bin/Debug/net6.0
+/TicketingSolution.Persistence.Tests/obj
